@@ -22,7 +22,6 @@ import {HeroService} from "../hero.service";
 export class HeroesComponent {
 
   constructor(private heroService: HeroService) {}
-
   ngOnInit(){
     this.getHeroes();
   }
@@ -30,7 +29,7 @@ export class HeroesComponent {
   selectedHero?:Hero;
   heroes:Hero[] = [];
   getHeroes(){
-    this.heroes = this.heroService.getHeroes()
+   this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes)
   }
   onSelect (hero:Hero){
     this.selectedHero =hero;
